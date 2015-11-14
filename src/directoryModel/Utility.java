@@ -38,12 +38,19 @@ public final class Utility {
 		return isValid;
 	}
 	
-	public static String extractCategory(String [] cats){
+	/**
+	 * Method to extract the last Category
+	 * @param cats
+	 * @return
+	 */
+	public static String getCategory(String [] cats){
 		for(int i = 0; i < cats.length; i++){
-			
+			if(cats[i] == null){
+				//return the value in the element right before the first null
+				return cats[i-1];
+			}
 		}
-		
-		
+	 return cats[cats.length-1];//if no nulls, return the last element
 	}
 		
 }

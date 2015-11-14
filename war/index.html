@@ -693,6 +693,70 @@
 
         
         <!-- Second -->
+        <div class="row">
+    	<div class="form-group">
+        	<div class="col-md-4">
+                <label for="category_dropdown_2nd">Secondary Category:</label>
+                <select class="form-control" name="category_2nd" id="category_dropdown_2nd" required onchange="showHide_2nd()"> 
+                <option></option>
+                <option value="Hardware">Hardware</option>
+                <option value="Services">Services</option>
+                <option value="Data">Data</option>
+                <option value="Education">Education</option>
+                <option value="Software">Software</option>
+                </select>
+        	</div>
+    
+           <div class="col-md-4" id="secondLevel_2nd">                    
+            </div>
+            <div class="col-md-4" id="softwareType_2nd">
+            </div>
+   			<div class="col-md-4" id="bottomLevelOther_2nd">
+   			</div>
+   			
+   		</div><!--End Form Group for all tertiary categories--> 
+     
+    </div><!--End secondary category row-->
+    <hr/>
+     
+            
+            
+        <!-- Third -->       
+      <div class="row">
+    	<div class="form-group">
+        	<div class="col-md-4">
+                <label for="category_dropdown_3rd">Tertiary Category:</label>
+                <select class="form-control" name="category_3rd" id="category_dropdown_3rd" required onchange="showHide_3rd()"> 
+                <option></option>
+                <option value="Hardware">Hardware</option>
+                <option value="Services">Services</option>
+                <option value="Data">Data</option>
+                <option value="Education">Education</option>
+                <option value="Software">Software</option>
+                </select>
+        	</div>
+
+        	<div class="col-md-4" id="secondLevel_3rd">                  
+        	</div>
+            <div class="col-md-4" id="softwareType_3rd">
+            </div>
+   			<div class="col-md-4" id="bottomLevelOther_3rd">
+   			</div>
+        
+      </div><!--End Form Group for all tertiary categories-->          
+   </div><!--End tertiary category row-->
+        
+        <hr/>
+        
+        <!-- Form for Company Specialties -->
+        <div class="form-group">
+            <label for="specialty1">Company Specialty 1:</label>
+            <input class="form-control" type="text" id="specialty1" name="specialty1" required/>
+            <label for="specialty2">Company Specialty 2:</label>
+            <input class="form-control" type="text" id="specialty2" name="specialty2" required/>
+            <label for="specialty3">Company Specialty 3:</label>
+            <input class="form-control" type="text" id="specialty3" name="specialty3" required/>
+        </div>
     
         <hr/>
         
