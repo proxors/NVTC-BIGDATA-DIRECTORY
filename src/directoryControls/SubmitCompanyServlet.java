@@ -31,11 +31,16 @@ public class SubmitCompanyServlet extends HttpServlet{
 		//extract primary categories
 		String primaryCategoryDropdown = request.getParameter("category_dropdown");//first level of primary category
 		String primarySecondLevel = request.getParameter("subcategory");//get the input from the second level of primary category
-		String primaryThirdLevel = request.getParameter("primary3rdLevelOther");//get the input from the third level other
-		String primaryFourthLevel = request.getParameter("");
+		String primaryThirdLevel = request.getParameter("primary3rdLevel");//get the input from the third level other
+		String primaryFourthLevel = request.getParameter("primary4thLevel");
+		String [] primaryCategories = {primaryCategoryDropdown,primarySecondLevel,primaryThirdLevel,primaryFourthLevel};
 		
-		System.out.println("Primary Cat: " + primaryCategoryDropdown + "\nPrimary Cat Second: " + primarySecondLevel + "\n"+
-		"Primary Cat Third: " + primaryThirdLevel);
+		
+		System.out.println("Primary Cat: " + primaryCategoryDropdown + 
+				"\nPrimary Cat Second: " + primarySecondLevel + 
+				"\nPrimary Cat Third: " + primaryThirdLevel + 
+				"\nPrimary Cat 4th:" + primaryFourthLevel );
+		System.out.println();
 		
     	PointOfContact poc = EntityCreator.createPointOfContact(firstName, lastName, email);
 		Company aCompany = EntityCreator.createCompany(companyName, website, description);

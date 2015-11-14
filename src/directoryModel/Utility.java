@@ -7,7 +7,6 @@ package directoryModel;
  */
 public final class Utility {	
 	
-	
 	/**
 	 * Method to validate a string. checks that the string is not null
 	 * nor it contains empty spaces. 
@@ -37,6 +36,14 @@ public final class Utility {
 			isValid = false;
 		}
 		return isValid;
+	}
+	
+	public static String extractCategory(String [] cats){
+		for(int i = 0; i < cats.length; i++){
+			
+		}
+		
+		
 	}
 		
 }

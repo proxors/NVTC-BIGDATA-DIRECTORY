@@ -42,7 +42,7 @@
     	document.getElementById("bottomLevelOther").innerHTML = '';
     	document.getElementById("softwareType").innerHTML = '';
     	document.getElementById("secondLevel").innerHTML = '';
-		document.getElementById("secondLevel").innerHTML = '<label for="SubSofdiv">Software Type:</label><select class="form-control" required name="subcategory" id="SubSofdiv"  onchange="showHideSubSof()"> <option></option><option value="Infrastructure">Infrastructure</option><option value="Data Storage/Management">Data Storage/Management</option><option value="Data Integration">Data Integration</option><option value="Analytics and Visualization">Analytics and Visualization</option><option value="Software - Other">Other</option></select>';        
+		document.getElementById("secondLevel").innerHTML = '<label for="SubSofdiv">Software Type:</label><select class="form-control" required name="subcategory" id="SubSofdiv"  onchange="showHideSubSof()"> <option></option><option value="Infrastructure">Infrastructure</option><option value="Data Storage/Management">Data Storage/Management</option><option value="Data Integration">Data Integration</option><option value="Analytics and Visualization">Analytics and Visualization</option><option value="Software Other">Software Other</option></select>';        
     	} else 
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
@@ -58,7 +58,7 @@
     	if (document.getElementById("category_dropdown").selectedIndex == 1 & document.getElementById("SubHdiv").selectedIndex == 5)
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
-		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Hardware Other:</label>	<input class="form-control" name="primary3rdLevelOther" type="text" id="bottomLevelOther" required>';
+		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Hardware Other:</label>	<input class="form-control" name="primary3rdLevel" type="text" id="bottomLevelOther" required>';
     	} else {
 		document.getElementById("bottomLevelOther").innerHTML = '';
     	}
@@ -69,7 +69,7 @@
     	if(document.getElementById("category_dropdown").selectedIndex == 2 & document.getElementById("SubSdiv").selectedIndex == 5)
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
-		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Services Other:</label>	<input class="form-control" name="primary3rdLevelOther" type="text" id="bottomLevelOther" required>';
+		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Services Other:</label>	<input class="form-control" name="primary3rdLevel" type="text" id="bottomLevelOther" required>';
     	} else {
     	document.getElementById("bottomLevelOther").innerHTML = '';
     	}
@@ -81,7 +81,7 @@
     	if(document.getElementById("category_dropdown").selectedIndex == 3 & document.getElementById("SubDdiv").selectedIndex == 4)
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
-		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Data Other:</label>	<input class="form-control" name="primary3rdLevelOther" type="text" id="bottomLevelOther" required>';
+		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Data Other:</label>	<input class="form-control" name="primary3rdLevel" type="text" id="bottomLevelOther" required>';
     	} else {
     	document.getElementById("bottomLevelOther").innerHTML = '';
     	}
@@ -94,28 +94,29 @@
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
     	document.getElementById("softwareType").innerHTML = '';
-    	document.getElementById("softwareType").innerHTML = '<label for="softwareInfraSelect">Infrastructure Type:</label> <select class="form-control" required name="software3rdLevel" id="softwareInfraSelect" onchange="showHideSoftwareOther1()"> <option></option><option value="Application Framework">Application Framework</option><option value="Privacy/Security">Privacy/Security</option><option value="Search">Search</option><option value="Virtualization">Virtualization</option><option value="Infrastructure - Other">Other</option></select>';
+    	document.getElementById("softwareType").innerHTML = '<label for="softwareInfraSelect">Infrastructure Type:</label> <select class="form-control" required name="primary3rdLevel" id="softwareInfraSelect" onchange="showHideSoftwareOther1()"> <option></option><option value="Application Framework">Application Framework</option><option value="Privacy/Security">Privacy/Security</option><option value="Search">Search</option><option value="Virtualization">Virtualization</option><option value="Infrastructure Other">Infrastructure Other</option></select>';
     	} else if(document.getElementById("category_dropdown").selectedIndex == 5 & document.getElementById("SubSofdiv").selectedIndex == 2)
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
     	document.getElementById("softwareType").innerHTML = '';
-    	document.getElementById("softwareType").innerHTML = '<label for="softwareDataStorage">Data Storage/Management Type: </label><select class="form-control" required name="software3rdLevel" id="softwareDataStorage" onchange="showHideSoftwareOther2()"> <option></option><option value="Relational Database">Relational Database</option><option value="In-Memory Data Grid">In-Memory Data Grid</option><option value="Hadoop-NoSQL Platform">Hadoop-NoSQL Platform</option><option value="Semantic Data Store">Semantic Data Store</option><option value="RDF Data Store">RDF Data Store</option><option value="Data Governance">Data Governance</option><option value="Data Storage/Management - Other">Other</option></select>';
-    	} else if(document.getElementById("category_dropdown").selectedIndex == 5 & document.getElementById("SubSofdiv").selectedIndex == 3)
+    	document.getElementById("softwareType").innerHTML = '<label for="softwareDataStorage">Data Storage/Management Type: </label><select class="form-control" required name="primary3rdLevel" id="softwareDataStorage" onchange="showHideSoftwareOther2()"> <option></option><option value="Relational Database">Relational Database</option><option value="In Memory Data Grid">In Memory Data Grid</option><option value="Hadoop NoSQL Platform">Hadoop NoSQL Platform</option><option value="Semantic Data Store">Semantic Data Store</option><option value="RDF Data Store">RDF Data Store</option><option value="Data Governance">Data Governance</option><option value="Data Storage/Management Other">Data Storage Management Other</option></select>';
+    	} 
+    	else if(document.getElementById("category_dropdown").selectedIndex == 5 & document.getElementById("SubSofdiv").selectedIndex == 3)
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
     	document.getElementById("softwareType").innerHTML = '';
-    	document.getElementById("softwareType").innerHTML = '<label for="softwareDataIntegrationSelect">Data Integration Type:</label>    <select class="form-control" required id="softwareDataIntegrationSelect" name="software3rdLevel" onchange="showHideSoftwareOther3()"> <option></option><option value="Integration">Integration</option><option value="Profiling/Cleansing/Transformation">Profiling/Cleansing/Transformation</option><option value="Data Fusion">Data Fusion</option><option value="Data Integration - Other">Other</option></select>';
+    	document.getElementById("softwareType").innerHTML = '<label for="softwareDataIntegrationSelect">Data Integration Type:</label>    <select class="form-control" required id="softwareDataIntegrationSelect" name="primary3rdLevel" onchange="showHideSoftwareOther3()"> <option></option><option value="Integration">Integration</option><option value="Profiling/Cleansing/Transformation">Profiling/Cleansing/Transformation</option><option value="Data Fusion">Data Fusion</option><option value="Data Integration Other">Data Integration Other</option></select>';
     	} else if(document.getElementById("category_dropdown").selectedIndex == 5 & document.getElementById("SubSofdiv").selectedIndex == 4)
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
     	document.getElementById("softwareType").innerHTML = '';
-    	document.getElementById("softwareType").innerHTML = '<label for="softAnalyticsSelect">Analytics & Visualization Type:</label>     <select class="form-control" required id="softAnalyticsSelect" name="software3rdLevel" onchange="showHideSoftwareOther4()"> <option></option><option value="Modeling Platform">Modeling Platform</option><option value="Real-Time Streaming/Prediction/CEP">Real-Time Streaming/Prediction/CEP</option><option value="Text Analytics/Natural Language Processing">Text Analytics/Natural Language Processing</option><option value="Visualization/Data Mining">Visualization/Data Mining</option><option value="Social Media Analytics">Social Media Analytics</option><option value="Entity Analytics">Entity Analytics</option><option value="Link Analysis">Link Analysis</option><option value="Geospatial Analytics">Geospatial Analytics</option><option value="Data Analytics & Visualization - Other">Other</option></select>';    
+    	document.getElementById("softwareType").innerHTML = '<label for="softAnalyticsSelect">Analytics & Visualization Type:</label>     <select class="form-control" required id="softAnalyticsSelect" name="primary3rdLevel" onchange="showHideSoftwareOther4()"> <option></option><option value="Modeling Platform">Modeling Platform</option><option value="Real Time Streaming/Prediction/CEP">Real Time Streaming/Prediction/CEP</option><option value="Text Analytics/Natural Language Processing">Text Analytics/Natural Language Processing</option><option value="Visualization/Data Mining">Visualization/Data Mining</option><option value="Social Media Analytics">Social Media Analytics</option><option value="Entity Analytics">Entity Analytics</option><option value="Link Analysis">Link Analysis</option><option value="Geospatial Analytics">Geospatial Analytics</option><option value="Analytics and Visualization Other">Analytics and Visualization Other</option></select>';    
     	} else if(document.getElementById("category_dropdown").selectedIndex == 5 & document.getElementById("SubSofdiv").selectedIndex == 5)
     	//function for bringing out and hiding other field for Software type
 	 	{
     	document.getElementById("softwareType").innerHTML = '';
     	document.getElementById("bottomLevelOther").innerHTML = '';
-		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Other:</label>	<input class="form-control" name="bottomLevelOther" type="text" id="bottomLevelOther" required>';    
+		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Software Other:</label>	<input class="form-control" name="primary3rdLevel" type="text" id="bottomLevelOther" required>';    
     	}
     }
                                                        
@@ -127,7 +128,7 @@
     	if (document.getElementById("softwareInfraSelect").selectedIndex == 5)
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
-		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Other:</label>	<input class="form-control" name="bottomLevelOther" type="text" id="bottomLevelOther" required>';
+		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Infrastructure Other:</label>	<input class="form-control" name="primary4thLevel" type="text" id="bottomLevelOther" required>';
     	} else {
     	document.getElementById("bottomLevelOther").innerHTML = '';
     	}
@@ -140,20 +141,20 @@
     	if (document.getElementById("softwareDataStorage").selectedIndex == 7)
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
-		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Other:</label>	<input class="form-control" name="bottomLevelOther" type="text" id="bottomLevelOther" required>';
+		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Data Storage Management Other:</label>	<input class="form-control" name="primary4thLevel" type="text" id="bottomLevelOther" required>';
     	} else 
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
     	}
     }
     	
-    function showHideSoftwareOther3() //function for bringing out and hiding "Other" inside the Software Type Field
+    function showHideSoftwareOther3() //function for bringing out and hiding "Data Integration Other" inside Software-Software Type-Data Integration Type-Data Integration Other
 
     {
     	if (document.getElementById("softwareDataIntegrationSelect").selectedIndex == 4)
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
-		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Other:</label>	<input class="form-control" name="bottomLevelOther" type="text" id="bottomLevelOther" required>';
+		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Data Integration Other:</label>	<input class="form-control" name="primary4thLevel" type="text" id="bottomLevelOther" required>';
     	} else 
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
@@ -166,7 +167,7 @@
     	if (document.getElementById("softAnalyticsSelect").selectedIndex == 9) 
     	{
     	document.getElementById("bottomLevelOther").innerHTML = '';
-		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Other:</label>	<input class="form-control" name="bottomLevelOther" type="text" id="bottomLevelOther" required>';
+		document.getElementById("bottomLevelOther").innerHTML = '<label for="bottomLevelOther">Analytics and Visualization Other:</label><input class="form-control" name="primary4thLevel" type="text" id="bottomLevelOther" required>';
     	} else {
     	document.getElementById("bottomLevelOther").innerHTML = '';
     	}
@@ -201,7 +202,7 @@
     	document.getElementById("bottomLevelOther_2nd").innerHTML = '';
     	document.getElementById("softwareType_2nd").innerHTML = '';
     	document.getElementById("secondLevel_2nd").innerHTML = '';
-		document.getElementById("secondLevel_2nd").innerHTML = '<label for="SubSofdiv_2nd">Software Type:</label><select class="form-control" required name="subcategory_2nd" id="SubSofdiv_2nd"  onchange="showHideSubSof_2nd()"> <option></option><option value="Infrastructure">Infrastructure</option><option value="Data Storage/Management">Data Storage/Management</option><option value="Data Integration">Data Integration</option><option value="Analytics and Visualization">Analytics and Visualization</option><option value="Software - Other">Other</option></select>';        
+		document.getElementById("secondLevel_2nd").innerHTML = '<label for="SubSofdiv_2nd">Software Type:</label><select class="form-control" required name="subcategory_2nd" id="SubSofdiv_2nd"  onchange="showHideSubSof_2nd()"> <option></option><option value="Infrastructure">Infrastructure</option><option value="Data Storage/Management">Data Storage/Management</option><option value="Data Integration">Data Integration</option><option value="Analytics and Visualization">Analytics and Visualization</option><option value="Software Other">Software Other</option></select>';        
     	} else 
     	{
     	document.getElementById("bottomLevelOther_2nd").innerHTML = '';
