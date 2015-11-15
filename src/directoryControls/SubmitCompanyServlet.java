@@ -33,18 +33,40 @@ public class SubmitCompanyServlet extends HttpServlet{
 		String primarySecondLevel = request.getParameter("subcategory");//get the input from the second level of primary category
 		String primaryThirdLevel = request.getParameter("primary3rdLevel");//get the input from the third level other
 		String primaryFourthLevel = request.getParameter("primary4thLevel");
-		String [] primaryCategories = {primaryCategoryDropdown,primarySecondLevel,primaryThirdLevel,primaryFourthLevel};
+		
+		String secondaryCategoryDropdown = request.getParameter("category_2nd");//gets first parameter of first level from secondary categories
+		String secondaryCatSecondLevel = request.getParameter("secondaryCatSecondLevel");
+		String secondaryCatThirdLevel = request.getParameter("secondaryCat3rdLevel");
+		String secondaryCatFourthLevel = request.getParameter("secondaryCat4thLevel");
 		
 		
-		System.out.println("Primary Cat: " + primaryCategoryDropdown + 
-				"\nPrimary Cat Second: " + primarySecondLevel + 
-				"\nPrimary Cat Third: " + primaryThirdLevel + 
-				"\nPrimary Cat 4th:" + primaryFourthLevel );
+		System.out.println("Primary Cat level: " + primaryCategoryDropdown + 
+				"\nPrimary Cat Second level: " + primarySecondLevel + 
+				"\nPrimary Cat Third level: " + primaryThirdLevel + 
+				"\nPrimary Cat 4th level:" + primaryFourthLevel );
 		System.out.println();
 		
-    	PointOfContact poc = EntityCreator.createPointOfContact(firstName, lastName, email);
-		Company aCompany = EntityCreator.createCompany(companyName, website, description);
-		aCompany.setTelephone(telephone);
+		System.out.println("Secondary Cat first level: " + secondaryCategoryDropdown + 
+				"\nSecondary Cat Second level: " + secondaryCatSecondLevel + 
+				"\nSecondary Cat Third level: " + secondaryCatThirdLevel + 
+				"\nSecondary Cat 4th level:" + secondaryCatFourthLevel );
+		System.out.println();
+		
+		
+		
+		
+		
+//    	PointOfContact poc = EntityCreator.createPointOfContact(firstName, lastName, email);
+//		Company aCompany = EntityCreator.createCompany(companyName, website, description);
+//		aCompany.setTelephone(telephone);
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		//while(!data.isEmpty()){
