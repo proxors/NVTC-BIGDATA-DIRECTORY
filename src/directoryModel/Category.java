@@ -20,14 +20,18 @@ public class Category {
 	private String type;
 	
 	@Persistent 
-	private String description;
+	private String categoryName;
+	
+	@Persistent
+	private String categoryHierarchy;
 		
 	public Category(){
-		this("type", "description");
+		this("type", "description","level1-level2-level3-level4");
 	}
-	public Category(String type, String catDescription) {
+	public Category(String type, String catName, String hierarchy) {
 		this.type = type;
-		this.description = catDescription;
+		this.categoryName = catName;
+		this.categoryHierarchy = hierarchy;
 	}
 	/**
 	 * @return the type
@@ -44,14 +48,27 @@ public class Category {
 	/**
 	 * @return the description
 	 */
-	public String getDescription() {
-		return description;
+	public String getCategoryName() {
+		return categoryName;
 	}
 	/**
 	 * @param description the description to set
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setCategoryName(String catName) {
+		this.categoryName = catName;
+	}
+	/**
+	 * Method that returns the category's hierarchy separated by a '-' for exmample hardware-compute
+	 * @return the categoryHierarchy
+	 */
+	public String getCategoryHierarchy() {
+		return categoryHierarchy;
+	}
+	/**
+	 * @param categoryHierarchy the categoryHierarchy to set
+	 */
+	public void setCategoryHierarchy(String categoryHierarchy) {
+		this.categoryHierarchy = categoryHierarchy;
 	}
 	/**
 	 * @return the key

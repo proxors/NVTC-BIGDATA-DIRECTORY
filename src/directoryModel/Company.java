@@ -21,41 +21,32 @@ public class Company {
 	@Persistent private String telephone;
 	@Persistent private String description;
 	
-	@Persistent public static final int MAX_NUM_ADDRESS = 2;		
-	@Persistent public static final int MAX_NUM_PRIMARY_CATEGORIES = 4;	
-	@Persistent public static final int MAX_NUM_SECONDARY_CATEGORIES = 4;
-	@Persistent public static final int MAX_NUM_TERTIARY_CATEGORIES = 4;
-	@Persistent public static final int MAX_NUM_POINT_CONTACTS = 3;
-	@Persistent public static final int MAX_NUM_SPECIALIZATIONS = 3;
+	@Persistent	private Address companyAddress;
 	
-	@Persistent	private List<Address> addressList;
+	@Persistent private Category primaryCategory;
 	
-	@Persistent private List<Category> primaryCategories;
+	@Persistent private Category secondaryCategory;
 	
-	@Persistent private List<Category> secondaryCategories;
+	@Persistent private Category tertiaryCategory;
 	
-	@Persistent private List<Category> tertiaryCategories;
+	@Persistent private PointOfContact poc;
 	
-	@Persistent private List<PointOfContact> pointOfContactList;
-	
-	@Persistent private List<CompanySpecialization> specializations;
+	@Persistent private String specialty1;
+	@Persistent private String specialty2;
+	@Persistent private String specialty3;
 	
 	
-	Company(){
+	
+	public Company(){
 		this("company name", "www.example.com", "a description");
 	}
 	
-	Company(String aName, String website, String description){
+	public Company(String aName, String website, String description){
 		this.name = aName;
 		this.website = website;
 		this.telephone = "555-555-5555";
 		this.description = description;
-		this.addressList = new ArrayList<Address>(MAX_NUM_ADDRESS);
-		this.primaryCategories = new ArrayList<Category>(MAX_NUM_PRIMARY_CATEGORIES);
-		this.secondaryCategories = new ArrayList<Category>(MAX_NUM_SECONDARY_CATEGORIES);
-		this.tertiaryCategories = new ArrayList<Category>(MAX_NUM_TERTIARY_CATEGORIES);
-		this.pointOfContactList = new ArrayList<PointOfContact>(MAX_NUM_POINT_CONTACTS);
-		this.specializations = new ArrayList<CompanySpecialization>(MAX_NUM_SPECIALIZATIONS);
+		
 	}
 
 	/**
@@ -120,8 +111,8 @@ public class Company {
 	/**
 	 * @return the addressList
 	 */
-	public List<Address> getAddressList() {
-		return addressList;
+	public Address getAddress() {
+		return this.companyAddress;
 	}
 
 	/**
@@ -129,141 +120,148 @@ public class Company {
 	 * Method to set an entire list of addresses
 	 * @param addressList the addressList to set
 	 */
-	public void setAddressList(List<Address> addressList) {
-		this.addressList = addressList;
-	}
-	/**
-	 * Method to add an address to the address list.
-	 * @param address
-	 * @return
-	 */
-	public void addAdress(Address address){
-		if(addressList.size() < MAX_NUM_ADDRESS){
-			addressList.add(address);			
-		}
-		
+	public void setAddress(Address address) {
+		this.companyAddress = address;
 	}
 
 	/**
 	 * Method to get the list of primary categories.
 	 * @return the primaryCategories
 	 */
-	public List<Category> getPrimaryCategories() {
-		return primaryCategories;
+	public Category getPrimaryCategory() {
+		return this.primaryCategory;
 	}
 
 	/**
 	 * @param primaryCategories the primaryCategories to set
 	 */
-	public void setPrimaryCategories(List<Category> primaryCategories) {
-		this.primaryCategories = primaryCategories;
+	public void setPrimaryCategory(Category primaryCategory) {
+		this.primaryCategory = primaryCategory;
 	}
 	
-	public static Category createCategory(String type, String catDescription){
-		return new Category(type, catDescription);
-	}
-	
-	public void addPrimaryCategory(Category primCat){
-		if(primaryCategories.size() < MAX_NUM_PRIMARY_CATEGORIES ){
-			primaryCategories.add(primCat);
-		}
+	public static Category createCategory(String type, String catDescription, String hierarchy){
+		return new Category(type, catDescription, hierarchy);
 	}
 
 	/**
-	 * @return the secondaryCategories
+	 * 
+	 * @return
 	 */
-	public List<Category> getSecondaryCategories() {
-		return secondaryCategories;
+	public Category getSecondaryCategory() {
+		return this.secondaryCategory;
 	}
 
 	/**
 	 * @param secondaryCategories the secondaryCategories to set
 	 */
-	public void setSecondaryCategories(List<Category> secondaryCategories) {
-		this.secondaryCategories = secondaryCategories;
+	public void setSecondaryCategory(Category secondaryCategory) {
+		this.secondaryCategory = secondaryCategory;
 	}
 	
-	public void addSecondaryCategory(Category secondCat){
-		if(secondaryCategories.size() < MAX_NUM_SECONDARY_CATEGORIES ){
-			secondaryCategories.add(secondCat);
-		}
-	}
+	
 
 	/**
 	 * @return the tertiaryCategories
 	 */
-	public List<Category> getTertiaryCategories() {
-		return tertiaryCategories;
+	public Category getTertiaryCategory() {
+		return this.tertiaryCategory;
 	}
 
 	/**
 	 * @param tertiaryCategories the tertiaryCategories to set
 	 */
-	public void setTertiaryCategories(List<Category> tertiaryCategories) {
-		this.tertiaryCategories = tertiaryCategories;
-	}
-	
-	public void addTertiaryCategory(Category tertiaryCat){
-		if(tertiaryCategories.size() < MAX_NUM_TERTIARY_CATEGORIES ){
-			tertiaryCategories.add(tertiaryCat);
-		}
+	public void setTertiaryCategories(Category tertiaryCategory) {
+		this.tertiaryCategory = tertiaryCategory;
 	}
 
 	/**
 	 * @return the pointOfContactList
 	 */
-	public List<PointOfContact> getPointOfContactList() {
-		return pointOfContactList;
+	public PointOfContact getPointOfContact() {
+		return this.poc;
 	}
 
 	/**
 	 * @param pointOfContactList the pointOfContactList to set
 	 */
-	public void setPointOfContactList(List<PointOfContact> pointOfContactList) {
-		this.pointOfContactList = pointOfContactList;
+	public void setPointOfContact(PointOfContact poc) {
+		this.poc = poc;
 	}
 	
-	public void addPointOfContact(PointOfContact aContact){
-		if(pointOfContactList.size() < MAX_NUM_POINT_CONTACTS ){
-			pointOfContactList.add(aContact);
-		}
+
+	/**
+	 * @return the specialty1
+	 */
+	public String getSpecialty1() {
+		return specialty1;
 	}
 
 	/**
-	 * @return the specializations
+	 * @param specialty1 the specialty1 to set
 	 */
-	public List<CompanySpecialization> getSpecializations() {
-		return specializations;
+	public void setSpecialty1(String specialty1) {
+		this.specialty1 = specialty1;
 	}
 
 	/**
-	 * @param specializations the specializations to set
+	 * @return the specialty2
 	 */
-	public void setSpecializations(List<CompanySpecialization> specializations) {
-		this.specializations = specializations;
-	}
-	
-	public static CompanySpecialization createSpecialization (String type, String description){
-		return new CompanySpecialization(type, description);
+	public String getSpecialty2() {
+		return specialty2;
 	}
 
-	public void addSpecialization(CompanySpecialization specialization){
-		if(specializations.size() < MAX_NUM_SPECIALIZATIONS){
-			specializations.add(specialization);
-		}
+	/**
+	 * @param specialty2 the specialty2 to set
+	 */
+	public void setSpecialty2(String specialty2) {
+		this.specialty2 = specialty2;
 	}
+
+	/**
+	 * @return the specialty3
+	 */
+	public String getSpecialty3() {
+		return specialty3;
+	}
+
+	/**
+	 * @param specialty3 the specialty3 to set
+	 */
+	public void setSpecialty3(String specialty3) {
+		this.specialty3 = specialty3;
+	}
+
 	/**
 	 * @return the key
 	 */
 	public Key getKey() {
-		return key;
+		return this.key;
 	}
 
 	/**
 	 * Returns a string representation of company.
 	 */
 	public String toString(){
-		return "Company to string default.";
+		String output = "Point of Contact Information\n"
+				+ "First Name: " + poc.getFirstName() + "- Last Name: " + poc.getLastName() + "\n"
+				+ "Email: " + poc.getEmail() + "\n"
+				+ "Company Information\n"
+				+ "Company Name: " + this.getName() + " Company Website: " + this.getWebsite() + "\n"
+				+ "Company Telephone: " + this.getTelephone() + "\n"
+				+ "Company Description: " + this.getDescription() + "\n"
+				+ "Address 1: \n"
+				+ this.getAddress().getStreetName() + "\n"
+				+ this.getAddress().getCity() + ", " + this.getAddress().getState() + " " + this.getAddress().getZipcode() + "\n"
+			    + "Category Info: \n"
+			    + "Primary Category: " + this.getPrimaryCategory().getCategoryName() + "\n"
+			    + "Secondary Category: " + this.getSecondaryCategory().getCategoryName() + "\n"
+			    + "Tertiary Category: " + this.getTertiaryCategory().getCategoryName() + "\n"
+			    + "Specialty Info:\n"
+			    + "Specialty 1: " + this.getSpecialty1() + "\n"
+			    + "Specialty 2: " + this.getSpecialty2() + "\n"
+			    + "Specialty 3: " + this.getSpecialty3() + "\n";		;
+		
+		return output;
 	}
 	
 }

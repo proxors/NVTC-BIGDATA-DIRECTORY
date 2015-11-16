@@ -3,6 +3,7 @@
  */
 package directoryControls;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.*;
@@ -19,13 +20,14 @@ public class SubmitCompanyServlet extends HttpServlet{
 		//Extract Company info
 		String companyName = request.getParameter("companyName");
 		String website = request.getParameter("website");
-		String telephone = request.getParameter("telephone");
+		String telephone = request.getParameter("companyPhone");
+		System.out.println("check contents of telephone: " + telephone);
 		String description = request.getParameter("companyDescription");
 		String address1 = request.getParameter("companyAddress1");
 		String address2 = request.getParameter("companyAddress2");
 		String city = request.getParameter("companyCity");
 		String state = request.getParameter("companyState");
-		String zipcode = "" + request.getParameter("companyZip");
+		String zipcode = "" + request.getParameter("companyZip");//convert zipcode to string
 		
 		
 		//extract primary categories
@@ -34,23 +36,88 @@ public class SubmitCompanyServlet extends HttpServlet{
 		String primaryThirdLevel = request.getParameter("primary3rdLevel");//get the input from the third level other
 		String primaryFourthLevel = request.getParameter("primary4thLevel");
 		
+		//extract secondary categories
 		String secondaryCategoryDropdown = request.getParameter("category_2nd");//gets first parameter of first level from secondary categories
 		String secondaryCatSecondLevel = request.getParameter("secondaryCatSecondLevel");
 		String secondaryCatThirdLevel = request.getParameter("secondaryCat3rdLevel");
 		String secondaryCatFourthLevel = request.getParameter("secondaryCat4thLevel");
+		//extract tertiary categories
+		String tertiaryCategoryDropdown = request.getParameter("category_3rd");//gets first parameter of first level from secondary categories
+		String tertiaryCatSecondLevel = request.getParameter("tertiaryCatSecondLevel");
+		String tertiaryCatThirdLevel = request.getParameter("tertiaryCat3rdLevel");
+		String tertiaryCatFourthLevel = request.getParameter("tertiaryCat4thLevel");		
+		
+		//extract company specialties
+		String specialty1 = request.getParameter("specialty1");
+		String specialty2 = request.getParameter("specialty2");
+		String specialty3 = request.getParameter("specialty3");
+		
+		String [] primCats = {primaryCategoryDropdown,primarySecondLevel,primaryThirdLevel,primaryFourthLevel};
+		String [] secCats = {secondaryCategoryDropdown,secondaryCatSecondLevel,secondaryCatThirdLevel,secondaryCatFourthLevel};
+		String [] terCats = {tertiaryCategoryDropdown,tertiaryCatSecondLevel,tertiaryCatThirdLevel,tertiaryCatFourthLevel};
+		
+		//create company object
+		Company comp = new Company();
+		//populate aCompany object with data from form
+		PointOfContact poc = new PointOfContact();
+		poc.setFirstName(firstName);
+		poc.setLastName(lastName);
+		poc.setEmail(email);
+		comp.setPointOfContact(poc);
+		comp.setName(companyName);
+		comp.setWebsite(website);
+		comp.setTelephone(telephone);
+		comp.setDescription(description);
+		Address address = new Address(address1,city,state,zipcode);
+		comp.setAddress(address);
+		//build category object with 3 params, type, category name, hierarchy
+		Category primaryCategory = Company.createCategory("Primary",Utility.getCategoryName(primCats),Utility.buildCategoryHierarchy(primCats));
+		Category secondaryCategory = Company.createCategory("Primary",Utility.getCategoryName(secCats),Utility.buildCategoryHierarchy(secCats));
+		Category tertiaryCategory = Company.createCategory("Primary",Utility.getCategoryName(terCats),Utility.buildCategoryHierarchy(terCats));
+		//store categories to company object (comp)
+		comp.setPrimaryCategory(primaryCategory);
+		comp.setSecondaryCategory(secondaryCategory);
+		comp.setTertiaryCategories(tertiaryCategory);
+		
+		comp.setSpecialty1(specialty1);
+		comp.setSpecialty2(specialty2);
+		comp.setSpecialty3(specialty3);
+		System.out.println(comp.toString());
+		//store company object into the datastore and redirect to Successful Submission Screen
+		response.setContentType("text/html");
+		response.getWriter().println(comp.toString());
 		
 		
-		System.out.println("Primary Cat level: " + primaryCategoryDropdown + 
-				"\nPrimary Cat Second level: " + primarySecondLevel + 
-				"\nPrimary Cat Third level: " + primaryThirdLevel + 
-				"\nPrimary Cat 4th level:" + primaryFourthLevel );
-		System.out.println();
+	
 		
-		System.out.println("Secondary Cat first level: " + secondaryCategoryDropdown + 
-				"\nSecondary Cat Second level: " + secondaryCatSecondLevel + 
-				"\nSecondary Cat Third level: " + secondaryCatThirdLevel + 
-				"\nSecondary Cat 4th level:" + secondaryCatFourthLevel );
-		System.out.println();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
 		
 		
 		
@@ -74,9 +141,7 @@ public class SubmitCompanyServlet extends HttpServlet{
 		//}
 		
 		
-//		System.out.println("First name: " + firstName + "\nlastName: " + lastName + "\nemail: " + email);		
-//		System.out.println("company name: " + companyName + "\nwebsite: " + website + "\ntelephone: " + telephone + "\nDescription: " + description + 
-//				"\nAddress1: " + address1 + "\nAddress2: " + address2 + "\ncity: " + city + "\nstate: " + state + "\nzipcode: " + zipcode + "\nPrimary Cat: " +primaryCategory+
+//		+ "\nPrimary Cat: " +primaryCategory+
 //				"\nPCat Second Level:" + primaryCategorySecond + "\nPCat Third: " + primaryCategoryThird);
 	
 		/*String username = request.getParameter("username");

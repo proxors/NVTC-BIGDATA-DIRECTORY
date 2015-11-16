@@ -43,14 +43,25 @@ public final class Utility {
 	 * @param cats
 	 * @return
 	 */
-	public static String getCategory(String [] cats){
+	public static String buildCategoryHierarchy(String [] cats){
+		String output = "";
 		for(int i = 0; i < cats.length; i++){
-			if(cats[i] == null){
-				//return the value in the element right before the first null
-				return cats[i-1];
+			if(cats[i] != null){
+				output += cats[i] + "-";
 			}
 		}
-	 return cats[cats.length-1];//if no nulls, return the last element
+		//delete the last hyphen in the string before returning
+		output = output.substring(0,output.length() -1);
+	 return output;
+	}
+	
+	public static String getCategoryName(String [] cats){
+		for(int i = cats.length-1; i >= 0; i--){
+			if(cats[i] != null){
+				return cats[i];
+			}
+		}
+		return "";		
 	}
 		
 }

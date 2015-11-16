@@ -24,11 +24,11 @@ public class PointOfContact {
 	
 	@Persistent private String lastName;
 	
-	PointOfContact(){
+	public PointOfContact(){
 		this("aFirstName", "aLastName", "email@example.com");
 	}
 	
-	PointOfContact(String firstName, String lastName, String email){
+	public PointOfContact(String firstName, String lastName, String email){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -38,7 +38,7 @@ public class PointOfContact {
 	 * @return the email
 	 */
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	/**

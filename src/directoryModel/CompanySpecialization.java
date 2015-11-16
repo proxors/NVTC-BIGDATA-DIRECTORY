@@ -20,14 +20,14 @@ public class CompanySpecialization {
 	private String type;
 	
 	@Persistent 
-	private String description;
+	private String specializationName;
 	
 	public CompanySpecialization(){
 		this("specialization type", "Specialization description");
 	}
-	public CompanySpecialization(String type, String description) {
+	public CompanySpecialization(String type, String specializationName) {
 		this.type = type;
-		this.description = description;
+		this.specializationName = specializationName;
 	}
 	/**
 	 * @return the type
@@ -44,14 +44,14 @@ public class CompanySpecialization {
 	/**
 	 * @return the description
 	 */
-	public String getDescription() {
-		return description;
+	public String getSpecializationName() {
+		return specializationName;
 	}
 	/**
 	 * @param description the description to set
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setSpecializationName(String specializationName) {
+		this.specializationName = specializationName;
 	}
 	/**
 	 * @return the key
@@ -61,7 +61,7 @@ public class CompanySpecialization {
 	}
 	
 	public String toString(){
-		return "Default Specialization String";
+		return specializationName;
 	}
 	
 
