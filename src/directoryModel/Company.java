@@ -242,24 +242,24 @@ public class Company {
 	 * Returns a string representation of company.
 	 */
 	public String toString(){
-		String output = "Point of Contact Information\n"
-				+ "First Name: " + poc.getFirstName() + "- Last Name: " + poc.getLastName() + "\n"
-				+ "Email: " + poc.getEmail() + "\n"
-				+ "Company Information\n"
-				+ "Company Name: " + this.getName() + " Company Website: " + this.getWebsite() + "\n"
-				+ "Company Telephone: " + this.getTelephone() + "\n"
-				+ "Company Description: " + this.getDescription() + "\n"
-				+ "Address 1: \n"
-				+ this.getAddress().getStreetName() + "\n"
-				+ this.getAddress().getCity() + ", " + this.getAddress().getState() + " " + this.getAddress().getZipcode() + "\n"
-			    + "Category Info: \n"
-			    + "Primary Category: " + this.getPrimaryCategory().getCategoryName() + "\n"
-			    + "Secondary Category: " + this.getSecondaryCategory().getCategoryName() + "\n"
-			    + "Tertiary Category: " + this.getTertiaryCategory().getCategoryName() + "\n"
-			    + "Specialty Info:\n"
-			    + "Specialty 1: " + this.getSpecialty1() + "\n"
-			    + "Specialty 2: " + this.getSpecialty2() + "\n"
-			    + "Specialty 3: " + this.getSpecialty3() + "\n";		;
+		String output = "Point of Contact Information\n<br/>"
+				+ "First Name: " + poc.getFirstName() + " - Last Name: " + poc.getLastName() + "\n<br/>"
+				+ "Email: " + poc.getEmail() + "\n<br/>"
+				+ "Company Information\n<br/>"
+				+ "Company Name: " + this.getName() + " - Company Website: " + this.getWebsite() + "\n<br/>"
+				+ "Company Telephone: " + this.getTelephone() + "\n<br/>"
+				+ "Company Description: " + this.getDescription() + "\n<br/>"
+				+ "Address 1: \n<br/>"
+				+ this.getAddress().getStreetName() + "\n<br/>"
+				+ this.getAddress().getCity() + ", " + this.getAddress().getState() + " " + this.getAddress().getZipcode() + "\n<br/>"
+			    + "Category Info: \n<br/>"
+			    + "Primary Category: " + this.getPrimaryCategory().getCategoryName() + "\n<br/>"
+			    + "Secondary Category: " + this.getSecondaryCategory().getCategoryName() + "\n<br/>"
+			    + "Tertiary Category: " + this.getTertiaryCategory().getCategoryName() + "\n<br/>"
+			    + "Specialty Info:\n<br/>"
+			    + "Specialty 1: " + this.getSpecialty1() + "\n<br/>"
+			    + "Specialty 2: " + this.getSpecialty2() + "\n<br/>"
+			    + "Specialty 3: " + this.getSpecialty3() + "\n<br/>";		;
 		
 		return output;
 	}
